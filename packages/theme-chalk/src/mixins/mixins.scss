@@ -1,0 +1,38 @@
+// 混合方法去生成 bem 规范 @use 1. 保证只会引用一次 2.私有变量不会被引用
+@use 'config' as *;
+@forward 'config'; // 导出
+
+// .z-button{} 生成
+@mixin b($block) {
+    $B: $namespace+'-'+$block;
+    .#{$B} {
+        @content;
+    }
+}
+
+// .z-button.is-xxx 代表状态(比如 .is-desiabled)
+@mixin when($state) {
+    @at-root {
+        &.#{$state-prefix + $state} {
+            @content;
+        }
+    }
+}
+
+// &--primary => .z-button--primary // 按钮是什么颜色的这种分割
+@mixin m($modifier) {
+    @at-root {
+        #{&+$modifier-separator+$modifier} {
+            @content;
+        }
+    }
+}
+
+// &__header => .z-button__header // 元素
+@mixin e($element) {
+    @at-root {
+        #{&+$element-separator+$element} {
+            @content;
+        }
+    }
+}

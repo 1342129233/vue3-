@@ -1,0 +1,25 @@
+{
+  "name": "vue-ui",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "pnpm -C play dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.75.0",
+    "typescript": "^5.4.5",
+    "unplugin-vue-define-options": "^1.4.3",
+    "vue": "^3.4.25"
+  },
+  "dependencies": {
+    "@wangxin/components": "workspace:*",
+    "@wangxin/theme-chalk": "workspace:*",
+    "@wangxin/utils": "workspace:*",
+    "lodash": "^4.17.21"
+  }
+}
