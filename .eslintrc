@@ -1,0 +1,28 @@
+{
+	"env": {
+		"node": true,
+		"browser": true,
+		"es2021": true
+	},
+	"extends": [
+		"eslint:recommended",
+		"plugin:vue/vue3-recommended", // vue3 解析 https://eslint.vuejs.org/
+		"plugin:@typescript-eslint/recommended", // ts 语法的插件
+		"@vue/typescript/recommended" // 检验 .vue 语法
+	],
+    "parseOptions": {
+        "ecmaVersion": "latest",
+        "parser": "@typescript-eslint/parser",
+        "sourceType": "module"
+    },
+	"rules": {
+		"vue/html-self-closing": "off",
+		"vue/max-attributes-per-line": "off",
+		"vue/singleline-element-content-newline": "off",
+		"vue/mult-word-component-name": "off"
+	},
+	"globals": {
+		"defineProps": "readonly",
+		"defineOptions": "readonly"
+	}
+}

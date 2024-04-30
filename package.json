@@ -11,6 +11,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@latest": "link:eslint/@latest",
+    "@typescript-eslint/eslint-plugin": "^7.8.0",
+    "@typescript-eslint/parser": "^7.8.0",
+    "eslint-plugin-vue": "^9.25.0",
+    "recommended": "link:@vue/typescript/recommended",
     "sass": "^1.75.0",
     "typescript": "^5.4.5",
     "unplugin-vue-define-options": "^1.4.3",
