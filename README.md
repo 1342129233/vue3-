@@ -35,3 +35,8 @@ eslint
 Prettier - Code formatter // 对 Prettier 进行首选项设置(保存格式化,单双引号等)
 EditorConfig for VS Code // 设置让  .editorconfig 生效
 ```
+
+### vitepress 编写组件文档
+```JS
+pnpm install vitepress -D // 在 doc 目录下安装
+```
