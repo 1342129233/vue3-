@@ -13,4 +13,8 @@ export default [
         title: 'Icon图标',
         component: () => import('@/views/z-icon/index.vue')
     },
+    {
+        path: '/:pathMatch(.*)*',
+        redirect: '/home'
+    }
 ]
