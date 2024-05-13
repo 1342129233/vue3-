@@ -69,6 +69,9 @@ importers:
       vue:
         specifier: ^3.4.21
         version: 3.4.25(typescript@5.4.5)
+      vue-router:
+        specifier: '4'
+        version: 4.3.2(vue@3.4.25(typescript@5.4.5))
     devDependencies:
       '@vitejs/plugin-vue':
         specifier: ^5.0.4
@@ -183,6 +186,15 @@ packages:
       react: '>= 16.8.0 < 19.0.0'
       react-dom: '>= 16.8.0 < 19.0.0'
       search-insights: '>= 1 < 3'
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      react:
+        optional: true
+      react-dom:
+        optional: true
+      search-insights:
+        optional: true
 
   '@drauu/core@0.4.0':
     resolution: {integrity: sha512-NaypCz/tA0XBAAZrie536FqOXpIuPg2lANB15wsUmrX+Hdw3DZWGz0Ez+wS9WKQsr4+qKcPL61o5eE7CoCYNCg==}
@@ -589,6 +601,9 @@ packages:
     peerDependencies:
       vue: '>= 2.5 < 2.7'
 
+  '@vue/devtools-api@6.6.1':
+    resolution: {integrity: sha512-LgPscpE3Vs0x96PzSSB4IGVSZXZBZHpfxs+ZA1d+VEPwHdOXowy/Y2CsvCAIFrf+ssVU1pD1jidj505EpUnfbA==}
+
   '@vue/devtools-api@7.1.3':
     resolution: {integrity: sha512-W8IwFJ/o5iUk78jpqhvScbgCsPiOp2uileDVC0NDtW38gCWhsnu9SeBTjcdu3lbwLdsjc+H1c5Msd/x9ApbcFA==}
 
@@ -643,6 +658,31 @@ packages:
       qrcode: '*'
       sortablejs: '*'
       universal-cookie: '*'
+    peerDependenciesMeta:
+      async-validator:
+        optional: true
+      axios:
+        optional: true
+      change-case:
+        optional: true
+      drauu:
+        optional: true
+      focus-trap:
+        optional: true
+      fuse.js:
+        optional: true
+      idb-keyval:
+        optional: true
+      jwt-decode:
+        optional: true
+      nprogress:
+        optional: true
+      qrcode:
+        optional: true
+      sortablejs:
+        optional: true
+      universal-cookie:
+        optional: true
 
   '@vueuse/metadata@10.9.0':
     resolution: {integrity: sha512-iddNbg3yZM0X7qFY2sAotomgdHK7YJ6sKUvQqbvwnf7TmaVPxS4EJydcNsVejNdS8iWCtDk+fYXr7E32nyTnGA==}
@@ -1697,6 +1737,11 @@ packages:
     peerDependencies:
       markdown-it-mathjax3: ^4
       postcss: ^8
+    peerDependenciesMeta:
+      markdown-it-mathjax3:
+        optional: true
+      postcss:
+        optional: true
 
   vue-demi@0.14.7:
     resolution: {integrity: sha512-EOG8KXDQNwkJILkx/gPcoL/7vH+hORoBaKgGe+6W7VFMvCYJfmF2dGbvgDroVnI8LU7/kTu8mbjRZGBU1z9NTA==}
@@ -1705,12 +1750,20 @@ packages:
     peerDependencies:
       '@vue/composition-api': ^1.0.0-rc.1
       vue: ^3.0.0-0 || ^2.6.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
 
   vue-eslint-parser@9.4.2:
     resolution: {integrity: sha512-Ry9oiGmCAK91HrKMtCrKFWmSFWvYkpGglCeFAIqDdr9zdXmMMpJOmUJS7WWsW7fX81h6mwHmUZCQQ1E0PkSwYQ==}
     engines: {node: ^14.17.0 || >=16.0.0}
     peerDependencies:
       eslint: '>=6.0.0'
+
+  vue-router@4.3.2:
+    resolution: {integrity: sha512-hKQJ1vDAZ5LVkKEnHhmm1f9pMiWIBNGF5AwU67PdH7TyXCj/a4hTccuUuYCAMgJK6rO/NVYtQIEN3yL8CECa7Q==}
+    peerDependencies:
+      vue: ^3.2.0
 
   vue-template-compiler@2.7.16:
     resolution: {integrity: sha512-AYbUWAJHLGGQM7+cNTELw+KsOG9nl2CnSv467WobS5Cv9uk3wFcnr1Etsz2sEIHEZvw1U+o9mRlEO6QbZvUPGQ==}
@@ -1935,15 +1988,17 @@ snapshots:
       '@algolia/autocomplete-core': 1.9.3(@algolia/client-search@4.23.3)(algoliasearch@4.23.3)(search-insights@2.13.0)
       '@algolia/autocomplete-preset-algolia': 1.9.3(@algolia/client-search@4.23.3)(algoliasearch@4.23.3)
       '@docsearch/css': 3.6.0
-      '@types/react': 18.3.1
       algoliasearch: 4.23.3
+    optionalDependencies:
+      '@types/react': 18.3.1
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       search-insights: 2.13.0
     transitivePeerDependencies:
       - '@algolia/client-search'
 
-  '@drauu/core@0.4.0': {}
+  '@drauu/core@0.4.0':
+    optional: true
 
   '@esbuild/aix-ppc64@0.20.2':
     optional: true
@@ -2150,7 +2205,8 @@ snapshots:
     dependencies:
       shiki: 1.3.0
 
-  '@types/cookie@0.6.0': {}
+  '@types/cookie@0.6.0':
+    optional: true
 
   '@types/estree@1.0.5': {}
 
@@ -2170,12 +2226,14 @@ snapshots:
       undici-types: 5.26.5
     optional: true
 
-  '@types/prop-types@15.7.12': {}
+  '@types/prop-types@15.7.12':
+    optional: true
 
   '@types/react@18.3.1':
     dependencies:
       '@types/prop-types': 15.7.12
       csstype: 3.1.3
+    optional: true
 
   '@types/semver@7.5.8': {}
 
@@ -2335,6 +2393,9 @@ snapshots:
   '@vue/composition-api@1.7.2(vue@3.4.25(typescript@5.4.5))':
     dependencies:
       vue: 3.4.25(typescript@5.4.5)
+    optional: true
+
+  '@vue/devtools-api@6.6.1': {}
 
   '@vue/devtools-api@7.1.3(vue@3.4.25(typescript@5.4.5))':
     dependencies:
@@ -2404,6 +2465,8 @@ snapshots:
     dependencies:
       '@vueuse/core': 10.9.0(@vue/composition-api@1.7.2(vue@3.4.25(typescript@5.4.5)))(vue@3.4.25(typescript@5.4.5))
       '@vueuse/shared': 10.9.0(@vue/composition-api@1.7.2(vue@3.4.25(typescript@5.4.5)))(vue@3.4.25(typescript@5.4.5))
+      vue-demi: 0.14.7(@vue/composition-api@1.7.2(vue@3.4.25(typescript@5.4.5)))(vue@3.4.25(typescript@5.4.5))
+    optionalDependencies:
       async-validator: 4.2.5
       axios: 1.6.8
       change-case: 5.4.4
@@ -2416,7 +2479,6 @@ snapshots:
       qrcode: 1.5.3
       sortablejs: 1.15.2
       universal-cookie: 7.1.4
-      vue-demi: 0.14.7(@vue/composition-api@1.7.2(vue@3.4.25(typescript@5.4.5)))(vue@3.4.25(typescript@5.4.5))
     transitivePeerDependencies:
       - '@vue/composition-api'
       - vue
@@ -2461,7 +2523,8 @@ snapshots:
       '@algolia/requester-node-http': 4.23.3
       '@algolia/transporter': 4.23.3
 
-  ansi-colors@4.1.3: {}
+  ansi-colors@4.1.3:
+    optional: true
 
   ansi-regex@5.0.1: {}
 
@@ -2488,15 +2551,18 @@ snapshots:
       '@babel/parser': 7.24.4
       ast-kit: 0.12.1
 
-  async-validator@4.2.5: {}
+  async-validator@4.2.5:
+    optional: true
 
-  asynckit@0.4.0: {}
+  asynckit@0.4.0:
+    optional: true
 
   axios@1.6.8:
     dependencies:
       follow-redirects: 1.15.6
       form-data: 4.0.0
       proxy-from-env: 1.1.0
+    optional: true
 
   balanced-match@1.0.2: {}
 
@@ -2522,14 +2588,16 @@ snapshots:
 
   callsites@3.1.0: {}
 
-  camelcase@5.3.1: {}
+  camelcase@5.3.1:
+    optional: true
 
   chalk@4.1.2:
     dependencies:
       ansi-styles: 4.3.0
       supports-color: 7.2.0
 
-  change-case@5.4.4: {}
+  change-case@5.4.4:
+    optional: true
 
   cheerio-select@1.6.0:
     dependencies:
@@ -2538,6 +2606,7 @@ snapshots:
       domelementtype: 2.3.0
       domhandler: 4.3.1
       domutils: 2.8.0
+    optional: true
 
   cheerio@1.0.0-rc.10:
     dependencies:
@@ -2548,6 +2617,7 @@ snapshots:
       parse5: 6.0.1
       parse5-htmlparser2-tree-adapter: 6.0.1
       tslib: 2.6.2
+    optional: true
 
   chokidar@3.6.0:
     dependencies:
@@ -2566,6 +2636,7 @@ snapshots:
       string-width: 4.2.3
       strip-ansi: 6.0.1
       wrap-ansi: 6.2.0
+    optional: true
 
   color-convert@2.0.1:
     dependencies:
@@ -2576,13 +2647,16 @@ snapshots:
   combined-stream@1.0.8:
     dependencies:
       delayed-stream: 1.0.0
+    optional: true
 
   commander@2.20.3:
     optional: true
 
-  commander@6.2.1: {}
+  commander@6.2.1:
+    optional: true
 
-  commander@9.2.0: {}
+  commander@9.2.0:
+    optional: true
 
   computeds@0.0.1: {}
 
@@ -2590,7 +2664,8 @@ snapshots:
 
   confbox@0.1.7: {}
 
-  cookie@0.6.0: {}
+  cookie@0.6.0:
+    optional: true
 
   copy-anything@2.0.6:
     dependencies:
@@ -2610,8 +2685,10 @@ snapshots:
       domhandler: 4.3.1
       domutils: 2.8.0
       nth-check: 2.1.1
+    optional: true
 
-  css-what@6.1.0: {}
+  css-what@6.1.0:
+    optional: true
 
   cssesc@3.0.0: {}
 
@@ -2623,16 +2700,19 @@ snapshots:
     dependencies:
       ms: 2.1.2
 
-  decamelize@1.2.0: {}
+  decamelize@1.2.0:
+    optional: true
 
   deep-is@0.1.4: {}
 
-  delayed-stream@1.0.0: {}
+  delayed-stream@1.0.0:
+    optional: true
 
   detect-libc@1.0.3:
     optional: true
 
-  dijkstrajs@1.0.3: {}
+  dijkstrajs@1.0.3:
+    optional: true
 
   dir-glob@3.0.1:
     dependencies:
@@ -2647,36 +2727,46 @@ snapshots:
       domelementtype: 2.3.0
       domhandler: 4.3.1
       entities: 2.2.0
+    optional: true
 
-  domelementtype@2.3.0: {}
+  domelementtype@2.3.0:
+    optional: true
 
   domhandler@3.3.0:
     dependencies:
       domelementtype: 2.3.0
+    optional: true
 
   domhandler@4.3.1:
     dependencies:
       domelementtype: 2.3.0
+    optional: true
 
   domutils@2.8.0:
     dependencies:
       dom-serializer: 1.4.1
       domelementtype: 2.3.0
       domhandler: 4.3.1
+    optional: true
 
   drauu@0.4.0:
     dependencies:
       '@drauu/core': 0.4.0
+    optional: true
 
-  emoji-regex@8.0.0: {}
+  emoji-regex@8.0.0:
+    optional: true
 
-  encode-utf8@1.0.3: {}
+  encode-utf8@1.0.3:
+    optional: true
 
   encoding@0.1.13:
     dependencies:
       iconv-lite: 0.6.3
+    optional: true
 
-  entities@2.2.0: {}
+  entities@2.2.0:
+    optional: true
 
   entities@4.5.0: {}
 
@@ -2711,7 +2801,8 @@ snapshots:
       '@esbuild/win32-ia32': 0.20.2
       '@esbuild/win32-x64': 0.20.2
 
-  escape-goat@3.0.0: {}
+  escape-goat@3.0.0:
+    optional: true
 
   escape-string-regexp@4.0.0: {}
 
@@ -2779,7 +2870,8 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  esm@3.2.25: {}
+  esm@3.2.25:
+    optional: true
 
   espree@9.6.1:
     dependencies:
@@ -2831,6 +2923,7 @@ snapshots:
     dependencies:
       locate-path: 5.0.0
       path-exists: 4.0.0
+    optional: true
 
   find-up@5.0.0:
     dependencies:
@@ -2849,22 +2942,26 @@ snapshots:
     dependencies:
       tabbable: 6.2.0
 
-  follow-redirects@1.15.6: {}
+  follow-redirects@1.15.6:
+    optional: true
 
   form-data@4.0.0:
     dependencies:
       asynckit: 0.4.0
       combined-stream: 1.0.8
       mime-types: 2.1.35
+    optional: true
 
   fs.realpath@1.0.0: {}
 
   fsevents@2.3.3:
     optional: true
 
-  fuse.js@7.0.0: {}
+  fuse.js@7.0.0:
+    optional: true
 
-  get-caller-file@2.0.5: {}
+  get-caller-file@2.0.5:
+    optional: true
 
   glob-parent@5.1.2:
     dependencies:
@@ -2913,6 +3010,7 @@ snapshots:
       domhandler: 3.3.0
       domutils: 2.8.0
       entities: 2.2.0
+    optional: true
 
   htmlparser2@6.1.0:
     dependencies:
@@ -2920,12 +3018,15 @@ snapshots:
       domhandler: 4.3.1
       domutils: 2.8.0
       entities: 2.2.0
+    optional: true
 
   iconv-lite@0.6.3:
     dependencies:
       safer-buffer: 2.1.2
+    optional: true
 
-  idb-keyval@6.2.1: {}
+  idb-keyval@6.2.1:
+    optional: true
 
   ignore@5.3.1: {}
 
@@ -2954,7 +3055,8 @@ snapshots:
 
   is-extglob@2.1.1: {}
 
-  is-fullwidth-code-point@3.0.0: {}
+  is-fullwidth-code-point@3.0.0:
+    optional: true
 
   is-glob@4.0.3:
     dependencies:
@@ -2969,7 +3071,8 @@ snapshots:
 
   isexe@2.0.0: {}
 
-  js-tokens@4.0.0: {}
+  js-tokens@4.0.0:
+    optional: true
 
   js-yaml@4.1.0:
     dependencies:
@@ -2990,8 +3093,10 @@ snapshots:
       web-resource-inliner: 6.0.1(encoding@0.1.13)
     transitivePeerDependencies:
       - encoding
+    optional: true
 
-  jwt-decode@4.0.0: {}
+  jwt-decode@4.0.0:
+    optional: true
 
   keyv@4.5.4:
     dependencies:
@@ -3067,6 +3172,7 @@ snapshots:
   locate-path@5.0.0:
     dependencies:
       p-locate: 4.1.0
+    optional: true
 
   locate-path@6.0.0:
     dependencies:
@@ -3079,6 +3185,7 @@ snapshots:
   loose-envify@1.4.0:
     dependencies:
       js-tokens: 4.0.0
+    optional: true
 
   lru-cache@6.0.0:
     dependencies:
@@ -3106,6 +3213,7 @@ snapshots:
       mathjax-full: 3.2.2
     transitivePeerDependencies:
       - encoding
+    optional: true
 
   mathjax-full@3.2.2:
     dependencies:
@@ -3113,28 +3221,34 @@ snapshots:
       mhchemparser: 4.2.1
       mj-context-menu: 0.6.1
       speech-rule-engine: 4.0.7
+    optional: true
 
-  mensch@0.3.4: {}
+  mensch@0.3.4:
+    optional: true
 
   merge2@1.4.1: {}
 
-  mhchemparser@4.2.1: {}
+  mhchemparser@4.2.1:
+    optional: true
 
   micromatch@4.0.5:
     dependencies:
       braces: 3.0.2
       picomatch: 2.3.1
 
-  mime-db@1.52.0: {}
+  mime-db@1.52.0:
+    optional: true
 
   mime-types@2.1.35:
     dependencies:
       mime-db: 1.52.0
+    optional: true
 
   mime@1.6.0:
     optional: true
 
-  mime@2.6.0: {}
+  mime@2.6.0:
+    optional: true
 
   minimatch@3.1.2:
     dependencies:
@@ -3148,7 +3262,8 @@ snapshots:
 
   mitt@3.0.1: {}
 
-  mj-context-menu@0.6.1: {}
+  mj-context-menu@0.6.1:
+    optional: true
 
   mlly@1.6.1:
     dependencies:
@@ -3175,10 +3290,12 @@ snapshots:
     dependencies:
       encoding: 0.1.13
       whatwg-url: 5.0.0
+    optional: true
 
   normalize-path@3.0.0: {}
 
-  nprogress@0.2.0: {}
+  nprogress@0.2.0:
+    optional: true
 
   nth-check@2.1.1:
     dependencies:
@@ -3200,6 +3317,7 @@ snapshots:
   p-limit@2.3.0:
     dependencies:
       p-try: 2.2.0
+    optional: true
 
   p-limit@3.1.0:
     dependencies:
@@ -3208,12 +3326,14 @@ snapshots:
   p-locate@4.1.0:
     dependencies:
       p-limit: 2.3.0
+    optional: true
 
   p-locate@5.0.0:
     dependencies:
       p-limit: 3.1.0
 
-  p-try@2.2.0: {}
+  p-try@2.2.0:
+    optional: true
 
   parent-module@1.0.1:
     dependencies:
@@ -3225,8 +3345,10 @@ snapshots:
   parse5-htmlparser2-tree-adapter@6.0.1:
     dependencies:
       parse5: 6.0.1
+    optional: true
 
-  parse5@6.0.1: {}
+  parse5@6.0.1:
+    optional: true
 
   path-browserify@1.0.1: {}
 
@@ -3255,7 +3377,8 @@ snapshots:
       mlly: 1.6.1
       pathe: 1.1.2
 
-  pngjs@5.0.0: {}
+  pngjs@5.0.0:
+    optional: true
 
   postcss-selector-parser@6.0.16:
     dependencies:
@@ -3272,7 +3395,8 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
-  proxy-from-env@1.1.0: {}
+  proxy-from-env@1.1.0:
+    optional: true
 
   prr@1.0.1:
     optional: true
@@ -3285,6 +3409,7 @@ snapshots:
       encode-utf8: 1.0.3
       pngjs: 5.0.0
       yargs: 15.4.1
+    optional: true
 
   queue-microtask@1.2.3: {}
 
@@ -3293,18 +3418,22 @@ snapshots:
       loose-envify: 1.4.0
       react: 18.3.1
       scheduler: 0.23.2
+    optional: true
 
   react@18.3.1:
     dependencies:
       loose-envify: 1.4.0
+    optional: true
 
   readdirp@3.6.0:
     dependencies:
       picomatch: 2.3.1
 
-  require-directory@2.1.1: {}
+  require-directory@2.1.1:
+    optional: true
 
-  require-main-filename@2.0.0: {}
+  require-main-filename@2.0.0:
+    optional: true
 
   resolve-from@4.0.0: {}
 
@@ -3342,7 +3471,8 @@ snapshots:
     dependencies:
       queue-microtask: 1.2.3
 
-  safer-buffer@2.1.2: {}
+  safer-buffer@2.1.2:
+    optional: true
 
   sass@1.75.0:
     dependencies:
@@ -3356,6 +3486,7 @@ snapshots:
   scheduler@0.23.2:
     dependencies:
       loose-envify: 1.4.0
+    optional: true
 
   search-insights@2.13.0: {}
 
@@ -3366,7 +3497,8 @@ snapshots:
     dependencies:
       lru-cache: 6.0.0
 
-  set-blocking@2.0.0: {}
+  set-blocking@2.0.0:
+    optional: true
 
   shebang-command@2.0.0:
     dependencies:
@@ -3380,9 +3512,11 @@ snapshots:
 
   slash@3.0.0: {}
 
-  slick@1.12.2: {}
+  slick@1.12.2:
+    optional: true
 
-  sortablejs@1.15.2: {}
+  sortablejs@1.15.2:
+    optional: true
 
   source-map-js@1.2.0: {}
 
@@ -3405,12 +3539,14 @@ snapshots:
       commander: 9.2.0
       wicked-good-xpath: 1.3.0
       xmldom-sre: 0.1.31
+    optional: true
 
   string-width@4.2.3:
     dependencies:
       emoji-regex: 8.0.0
       is-fullwidth-code-point: 3.0.0
       strip-ansi: 6.0.1
+    optional: true
 
   strip-ansi@6.0.1:
     dependencies:
@@ -3456,13 +3592,15 @@ snapshots:
     dependencies:
       is-number: 7.0.0
 
-  tr46@0.0.3: {}
+  tr46@0.0.3:
+    optional: true
 
   ts-api-utils@1.3.0(typescript@5.4.5):
     dependencies:
       typescript: 5.4.5
 
-  tslib@2.6.2: {}
+  tslib@2.6.2:
+    optional: true
 
   type-check@0.4.0:
     dependencies:
@@ -3481,6 +3619,7 @@ snapshots:
     dependencies:
       '@types/cookie': 0.6.0
       cookie: 0.6.0
+    optional: true
 
   unplugin-vue-define-options@1.4.3(rollup@4.17.0)(vue@3.4.25(typescript@5.4.5)):
     dependencies:
@@ -3504,7 +3643,8 @@ snapshots:
 
   util-deprecate@1.0.2: {}
 
-  valid-data-url@3.0.1: {}
+  valid-data-url@3.0.1:
+    optional: true
 
   vite@5.2.10(@types/node@20.12.7)(less@4.2.0)(lightningcss@1.24.1)(sass@1.75.0)(stylus@0.63.0)(sugarss@4.0.1(postcss@8.4.38))(terser@5.31.0):
     dependencies:
@@ -3534,12 +3674,13 @@ snapshots:
       '@vueuse/integrations': 10.9.0(@vue/composition-api@1.7.2(vue@3.4.25(typescript@5.4.5)))(async-validator@4.2.5)(axios@1.6.8)(change-case@5.4.4)(drauu@0.4.0)(focus-trap@7.5.4)(fuse.js@7.0.0)(idb-keyval@6.2.1)(jwt-decode@4.0.0)(nprogress@0.2.0)(qrcode@1.5.3)(sortablejs@1.15.2)(universal-cookie@7.1.4)(vue@3.4.25(typescript@5.4.5))
       focus-trap: 7.5.4
       mark.js: 8.11.1
-      markdown-it-mathjax3: 4.3.2(encoding@0.1.13)
       minisearch: 6.3.0
-      postcss: 8.4.38
       shiki: 1.3.0
       vite: 5.2.10(@types/node@20.12.7)(less@4.2.0)(lightningcss@1.24.1)(sass@1.75.0)(stylus@0.63.0)(sugarss@4.0.1(postcss@8.4.38))(terser@5.31.0)
       vue: 3.4.25(typescript@5.4.5)
+    optionalDependencies:
+      markdown-it-mathjax3: 4.3.2(encoding@0.1.13)
+      postcss: 8.4.38
     transitivePeerDependencies:
       - '@algolia/client-search'
       - '@types/node'
@@ -3569,8 +3710,9 @@ snapshots:
 
   vue-demi@0.14.7(@vue/composition-api@1.7.2(vue@3.4.25(typescript@5.4.5)))(vue@3.4.25(typescript@5.4.5)):
     dependencies:
-      '@vue/composition-api': 1.7.2(vue@3.4.25(typescript@5.4.5))
       vue: 3.4.25(typescript@5.4.5)
+    optionalDependencies:
+      '@vue/composition-api': 1.7.2(vue@3.4.25(typescript@5.4.5))
 
   vue-eslint-parser@9.4.2(eslint@8.57.0):
     dependencies:
@@ -3584,6 +3726,11 @@ snapshots:
       semver: 7.6.0
     transitivePeerDependencies:
       - supports-color
+
+  vue-router@4.3.2(vue@3.4.25(typescript@5.4.5)):
+    dependencies:
+      '@vue/devtools-api': 6.6.1
+      vue: 3.4.25(typescript@5.4.5)
 
   vue-template-compiler@2.7.16:
     dependencies:
@@ -3617,8 +3764,10 @@ snapshots:
       valid-data-url: 3.0.1
     transitivePeerDependencies:
       - encoding
+    optional: true
 
-  webidl-conversions@3.0.1: {}
+  webidl-conversions@3.0.1:
+    optional: true
 
   webpack-sources@3.2.3: {}
 
@@ -3628,14 +3777,17 @@ snapshots:
     dependencies:
       tr46: 0.0.3
       webidl-conversions: 3.0.1
+    optional: true
 
-  which-module@2.0.1: {}
+  which-module@2.0.1:
+    optional: true
 
   which@2.0.2:
     dependencies:
       isexe: 2.0.0
 
-  wicked-good-xpath@1.3.0: {}
+  wicked-good-xpath@1.3.0:
+    optional: true
 
   word-wrap@1.2.5: {}
 
@@ -3644,14 +3796,17 @@ snapshots:
       ansi-styles: 4.3.0
       string-width: 4.2.3
       strip-ansi: 6.0.1
+    optional: true
 
   wrappy@1.0.2: {}
 
   xml-name-validator@4.0.0: {}
 
-  xmldom-sre@0.1.31: {}
+  xmldom-sre@0.1.31:
+    optional: true
 
-  y18n@4.0.3: {}
+  y18n@4.0.3:
+    optional: true
 
   yallist@4.0.0: {}
 
@@ -3659,6 +3814,7 @@ snapshots:
     dependencies:
       camelcase: 5.3.1
       decamelize: 1.2.0
+    optional: true
 
   yargs@15.4.1:
     dependencies:
@@ -3673,5 +3829,6 @@ snapshots:
       which-module: 2.0.1
       y18n: 4.0.3
       yargs-parser: 18.1.3
+    optional: true
 
   yocto-queue@0.1.0: {}
