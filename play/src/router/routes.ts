@@ -14,6 +14,13 @@ export default [
         component: () => import('@/views/z-icon/index.vue')
     },
     {
+        name: 'z-tree',
+        path: '/z-tree',
+        icon: '',
+        title: 'Tree图标',
+        component: () => import('@/views/z-tree/index.vue')
+    },
+    {
         path: '/:pathMatch(.*)*',
         redirect: '/home'
     }
