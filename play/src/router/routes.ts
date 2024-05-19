@@ -21,6 +21,13 @@ export default [
         component: () => import('@/views/z-tree/index.vue')
     },
     {
+        name: 'z-checkbox',
+        path: '/z-checkbox',
+        icon: '',
+        title: 'Checkbox图标',
+        component: () => import('@/views/z-checkbox/index.vue')
+    },
+    {
         path: '/:pathMatch(.*)*',
         redirect: '/home'
     }

@@ -5,10 +5,12 @@ import App from './App.vue'
 import Icon from '@wangxin/components/icon';
 import '@wangxin/theme-chalk/src/index.scss';
 import Tree from '@wangxin/components/tree';
+import Checkbox from '@wangxin/components/checkbox';
 
 const plugins = [
     Icon,
-    Tree
+    Tree,
+    Checkbox
 ]
 
 
