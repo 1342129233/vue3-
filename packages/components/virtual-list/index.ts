@@ -1,15 +1,15 @@
 import { withInstall } from '@wangxin/utils/with-install';
-import _Tree from './src/tree.vue';
+import _Virtual from './src/virtual.tsx';
 
-const Tree = withInstall(_Tree);
+const Virtual = withInstall(_Virtual);
 
-export default Tree;
+export default Virtual;
 
 // 在这里添加的类型,可以在模版中被解析
 declare module 'vue' {
     export interface GlobalComponents { // 我们的接口将会自动合并
-        ZTree: typeof Tree
+        ZVirtualList: typeof Virtual
     }
 }
 
-export * from './src/tree';
+export * from './src/virtual.tsx';

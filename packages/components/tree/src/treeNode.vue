@@ -1,7 +1,13 @@
 <template>
-    <div :class="bem.b()">
+    <div :class="[
+            bem.b(),
+            bem.is('selected', isSelected),
+            bem.is('disabled', node.disabled)
+        ]">
         <div 
-            :class="bem.e('content')" 
+            :class="[
+                bem.e('content')
+            ]" 
             :style="{ paddingLeft: `${node.level * 16}px` }"
         >
             <span 
@@ -12,20 +18,25 @@
                 ]"
                 @click="handleExpand()"
             >
-                <z-icon size="20" color="pink">
-                    <Switch />
+                <z-icon size="20" color="#a8abb2">
+                    <Switch v-if="!isLoading"></Switch>
+                    <Loading v-else></Loading>
                 </z-icon>
             </span>
-            <!-- <span>{{ node?.key }}</span> -->
-            <span>{{ node?.label }}</span>
+            <span @click="handleSelected" :class="bem.e('balel')">
+                <ZTreeNodeContent :node="node"></ZTreeNodeContent>
+            </span>
         </div>
     </div>
 </template>
 <script setup lang="ts">
+import { computed, inject } from 'vue';
 import Switch from './icon/Switcher';
+import Loading from './icon/Loading';
 import ZIcon from '@wangxin/components/icon';
+import ZTreeNodeContent from './tree-node-content';
 import { createNameSpace } from '@wangxin/utils/create';
-import { treeNodeProps, treeNodeEmitts } from './tree';
+import { treeNodeProps, treeNodeEmitts, treeInjectKey } from './tree';
 
 const bem = createNameSpace('tree-node')
 
@@ -35,5 +46,19 @@ const emits = defineEmits(treeNodeEmitts)
 function handleExpand() {
     emits('toggle', props.node)
 }
-// console.log(props.expanded, props.node)
+
+const isLoading = computed(() => {
+    return props.loadingKeys.has(props.node.key)
+})
+
+const isSelected = computed(() => {
+    return props.selectKeys.includes(props.node.key)
+})
+
+function handleSelected() {
+    if(props.node.disabled) return
+    emits('select', props.node);
+}
+
+const treeContext = inject(treeInjectKey)
 </script>
