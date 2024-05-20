@@ -14,6 +14,6 @@ import { ref } from 'vue';
 const check = ref(true);
 
 function handleChange(value: boolean) {
-    // console.log(value)
+    console.log(value)
 }
 </script>
