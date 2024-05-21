@@ -5,7 +5,7 @@ import { TreeOption, Key } from '@wangxin/components/tree';
 // 模拟数据一
 function createData(level = 4, parentKey = ''):any {
     if(!level) return [];
-    const arr = new Array(30 - level).fill(0);
+    const arr = new Array(12 - level).fill(0);
     return arr.map((_, idx: number) => {
         const key = parentKey + level + idx;
         return {
@@ -112,12 +112,13 @@ const value = ref<Key[]>([]);
         >
         </z-tree> -->
         <!-- selectable 意味着可以选择节点, multiple 意味着可以多选节点 -->
-
         <z-tree
             :data="data"
             :on-load="handleLoad"
             v-model:selectedKeys="value"
             selectable
+            show-checkbox
+            :default-checked-keys="['40', '41']"
             :multiple="true"
         >
             <template #default="{ node }">

@@ -23,6 +23,14 @@
                     <Loading v-else></Loading>
                 </z-icon>
             </span>
+            <z-checkbox
+                v-if="showCheckbox" 
+                :model-value="checked" 
+                :disabled="disabled" 
+                :indeterminate="indeterminate"
+                @change="handleCheckChange"
+            >
+            </z-checkbox>
             <span @click="handleSelected" :class="bem.e('balel')">
                 <ZTreeNodeContent :node="node"></ZTreeNodeContent>
             </span>
@@ -35,8 +43,9 @@ import Switch from './icon/Switcher';
 import Loading from './icon/Loading';
 import ZIcon from '@wangxin/components/icon';
 import ZTreeNodeContent from './tree-node-content';
+import ZCheckbox from '@wangxin/components/checkbox';
 import { createNameSpace } from '@wangxin/utils/create';
-import { treeNodeProps, treeNodeEmitts, treeInjectKey } from './tree';
+import { treeNodeProps, treeNodeEmitts, treeInjectKey, TreeNode } from './tree';
 
 const bem = createNameSpace('tree-node')
 
@@ -61,4 +70,8 @@ function handleSelected() {
 }
 
 const treeContext = inject(treeInjectKey)
+
+function handleCheckChange(val: boolean) {
+    emits('check', props.node, val);
+}
 </script>
