@@ -58,7 +58,9 @@ watch(() => props.modelValue, (val) => {
 });
 
 onMounted(() => {
-    indeterminate(props.indeterminate)
+    if(props.indeterminate) {
+        indeterminate(props.indeterminate)
+    }
 })
 </script>
 

@@ -1,8 +1,8 @@
 <template>
     <z-checkbox 
         v-model="check" 
-        :disabled="false" 
-        :indeterminate="true"
+        :disabled="false"
+        :indeterminate="false"
         label="节点"
         @change="handleChange"
     >
