@@ -38,7 +38,7 @@
     </div>
 </template>
 <script setup lang="ts">
-import { computed, inject } from 'vue';
+import { ref, computed, inject, watch } from 'vue';
 import Switch from './icon/Switcher';
 import Loading from './icon/Loading';
 import ZIcon from '@wangxin/components/icon';
@@ -74,4 +74,31 @@ const treeContext = inject(treeInjectKey)
 function handleCheckChange(val: boolean) {
     emits('check', props.node, val);
 }
+
+// 选中框状态发生变化的时候执行
+const oldChecked = ref<boolean | null>(null)
+const oldIndeterminate = ref<boolean | null>(null)
+const handleSelectChange = (checked: boolean, indeterminate: boolean) => {
+    if(oldChecked.value !== checked || oldIndeterminate.value !== indeterminate) {
+        if(treeContext?.emit) {
+            treeContext.emit('check-change', props.node, checked, indeterminate);
+        }
+    }
+    oldChecked.value = checked
+    oldIndeterminate.value = indeterminate
+};
+
+watch(
+    () => props.indeterminate,
+    (val) => {
+        handleSelectChange(props.checked, val)
+    }
+)
+
+watch(
+    () => props.checked,
+    (val) => {
+        handleSelectChange(val, props.indeterminate)
+    }
+)
 </script>

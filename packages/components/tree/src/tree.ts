@@ -98,7 +98,8 @@ export const treeNodeEmitts = {
     check: (node: TreeNode, val: boolean) => typeof val === 'boolean'
 }
 export const treeEmits = { // 内部发射的事件,用来同步响应式数据
-    'update:selectedKeys': (keys: Key[]) => keys
+    'update:selectedKeys': (keys: Key[]) => keys,
+    'check-change': (node: TreeNode, checked: boolean, indeterminate: boolean) => node
 }
 
 export type TreeNodeProps = Partial<ExtractPropTypes<typeof treeNodeProps>>;
@@ -106,6 +107,7 @@ export type TreeProps = Partial<ExtractPropTypes<typeof treeProps>>;
 
 export interface TreeContext {
     slots: SetupContext['slots'],
+    emit: SetupContext['emit']
 }
 
 // 此变量作为提供出去的属性

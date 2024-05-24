@@ -23,7 +23,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch, computed, provide, useSlots, onMounted } from 'vue';
+import { ref, watch, computed, provide, useSlots, onMounted, SetupContext } from 'vue';
 import { createNameSpace } from '@wangxin/utils/create';
 import { treeProps, TreeProps, TreeOption, TreeNode, Key, treeEmits, treeInjectKey } from './tree';
 import ZTreeNode from './treeNode.vue';
@@ -35,6 +35,12 @@ defineOptions({
 })
 
 const props = defineProps(treeProps);
+const emits = defineEmits(treeEmits);
+
+provide(treeInjectKey, {
+    slots: useSlots(),
+    emit: emits as SetupContext['emit']
+})
 
 // 有了 props 要对用户的数据进行格式化,格式化一个固定的结果
 // label key children
@@ -93,7 +99,6 @@ watch(
     () => props.data, 
     (data: TreeOption[]) => {
         tree.value = createTree(data);
-        console.log(tree.value)
     },
     {
         immediate: true
@@ -198,8 +203,6 @@ function toggleExpand(node: TreeNode) {
 }
 
 // 5) 实现选中节点
-const emits = defineEmits(treeEmits);
-
 const selectKeysRef = ref<Key[]>([]);
 
 watch(
@@ -237,10 +240,6 @@ function handleSelect(node: TreeNode) {
     
     emits('update:selectedKeys', keys)
 }
-
-provide(treeInjectKey, {
-    slots: useSlots()
-})
 
 const checkedKeysRefs = ref(new Set(props.defaultCheckedKeys));
 
@@ -285,6 +284,7 @@ function findNode(key: Key) {
 function updateCheckedKeys(node: TreeNode) {
     // 自下而上的更新
     if(node && node.parentKey) {
+        
         let parentNode = findNode(node.parentKey)
         if(parentNode) {
             let allChecked = true; // 默认自元素应该全选
@@ -301,7 +301,7 @@ function updateCheckedKeys(node: TreeNode) {
                     allChecked = false;
                 }
             }
-
+   
             // 如果全选中
             if(allChecked) {
                 checkedKeysRefs.value.add(parentNode.key);
@@ -309,8 +309,10 @@ function updateCheckedKeys(node: TreeNode) {
             } else if(hasChecked) {
                 checkedKeysRefs.value.delete(parentNode.key);
                 indeterminateRefs.value.add(parentNode.key);
+            } else {
+                checkedKeysRefs.value.delete(parentNode.key);
+                indeterminateRefs.value.delete(parentNode.key);
             }
-
             // 调用完去处理父节点
             updateCheckedKeys(parentNode)
         }
@@ -319,8 +321,9 @@ function updateCheckedKeys(node: TreeNode) {
 
 // 选中的方法
 function toggleCheck(node: TreeNode, checked: boolean) {
+    // 自上而下选中
     toggle(node, checked)
-
+    // 自下而上选中
     updateCheckedKeys(node)
 }
 

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { TreeOption, Key } from '@wangxin/components/tree';
+import { TreeOption, Key, TreeNode } from '@wangxin/components/tree';
 
 // 模拟数据一
 function createData(level = 4, parentKey = ''):any {
@@ -99,6 +99,10 @@ const handleLoad = (node: TreeOption) => {
 }
 
 const value = ref<Key[]>([]);
+
+function checkChange(node: TreeNode, checked: boolean, indeterminate: boolean) {
+    console.log(111, node, checked, indeterminate)
+}
 </script>
 
 <template>
@@ -118,8 +122,9 @@ const value = ref<Key[]>([]);
             v-model:selectedKeys="value"
             selectable
             show-checkbox
-            :default-checked-keys="['40', '41']"
+            :default-checked-keys="[]"
             :multiple="true"
+            @check-change="checkChange"
         >
             <template #default="{ node }">
                 {{ node.key }} - {{ node.label }}
